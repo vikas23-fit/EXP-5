@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} | %-5level | [%thread] | correlationId=%X{correlationId:-N/A} | %logger{36} | %msg%n"/>
+
+    <!-- Console Appender -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="INFO">
+        <appender-ref ref="Console" />
+    </root>
+
+    <!-- Custom Package Logger -->
+    <logger name="com.example.restapi" level="DEBUG" additivity="false">
+        <appender-ref ref="Console" />
+    </logger>
+
+</configuration>
